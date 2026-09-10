@@ -1,10 +1,10 @@
 # AgriBot — AI-Powered Agricultural Assistant
 
-A voice-enabled, multilingual AI chatbot that helps Indian farmers with weather
-forecasts, mandi (market) prices, government agricultural schemes, and general
-crop care — rebuilt from the AgriBot project report.
+AgriBot is a voice-enabled, multilingual chatbot built to help Indian farmers get
+quick answers on weather, mandi (market) prices, government agricultural schemes,
+and general crop care — all in their own language, by typing or speaking.
 
-- **Backend**: FastAPI + LangChain-style RAG (FAISS/Pinecone) + Groq LLM + Whisper (STT) + gTTS (TTS)
+- **Backend**: FastAPI + a RAG pipeline (FAISS/Pinecone) + Groq LLM + Whisper (speech-to-text) + gTTS (text-to-speech)
 - **Frontend**: React + Vite + Tailwind CSS, with mic input and voice playback
 
 ## Project layout
@@ -31,7 +31,7 @@ agri_chatbot/
     └── package.json
 ```
 
-## API endpoints (mirrors the report's API summary)
+## API endpoints
 
 | Endpoint | Purpose |
 |---|---|
@@ -83,22 +83,29 @@ locally.
 AgriBot is designed to **run immediately with zero keys**, using free local/offline
 equivalents, then upgrade module-by-module as you add keys to `backend/.env`:
 
-| Feature | Works without a key? | Key to add for the "real" report version |
+| Feature | Works without a key? | Key to add for full functionality |
 |---|---|---|
-| Language detection & translation | ✅ (`langdetect` + `deep-translator`) | `GOOGLE_APPLICATION_CREDENTIALS` (Google Cloud Translate) |
-| Text-to-speech | ✅ (`gTTS`, free) | — already matches report |
-| Speech-to-text | ✅ (`openai-whisper`, runs locally; needs `ffmpeg` installed) | — already matches report |
+| Language detection & translation | ✅ (`langdetect` + `deep-translator`) | — |
+| Text-to-speech | ✅ (`gTTS`, free) | — |
+| Speech-to-text | ✅ (`openai-whisper`, runs locally; needs `ffmpeg` installed) | — |
 | Chat / intent / RAG answer generation | ⚠️ returns a placeholder message | `GROQ_API_KEY` (free tier at console.groq.com) |
 | Weather | ⚠️ returns "no live data" message | `OPENWEATHER_API_KEY` |
 | Mandi prices | ✅ (bundled `mandi_sample.csv` demonstrates the fallback logic) | `DATA_GOV_API_KEY` (free, data.gov.in) |
-| Government schemes RAG | ✅ (local `schemes.txt` + FAISS + Wikipedia/DuckDuckGo) | `PINECONE_API_KEY` to swap FAISS → Pinecone |
-| Crop care RAG | ✅ (Wikipedia + DuckDuckGo) | `TAVILY_API_KEY`, `SERPAPI_API_KEY` for broader retrieval |
+| Government schemes RAG | ✅ (local `schemes.txt` + FAISS + Wikipedia) | `PINECONE_API_KEY` to swap FAISS → Pinecone |
+| Crop care RAG | ✅ (Wikipedia) | `TAVILY_API_KEY`, `SERPAPI_API_KEY` for broader retrieval |
 
 **Minimum to see the full chat intelligence working: just set `GROQ_API_KEY`.**
 
-## Notes on fidelity to the report
+## How it works
 
-- Weather & mandi modules use an LLM call to extract entities (city/crop/state/district) from free text, exactly as described.
-- Mandi module implements the district → state → all-India → "list available crops" fallback chain.
-- Schemes and Crop Care modules are both multi-retriever RAG pipelines (local vector search + web retrievers), answering in the style of a PM-KISAN helpdesk / Krishi Vigyan Kendra expert respectively.
-- Frontend chat UI matches the described flow: hardcoded English greeting with a hover-revealed Translate dropdown (not spoken aloud), user bubbles in green on the right, bot bubbles in gray on the left with a speaker icon (only one audio plays at a time) and a "Translate to English" toggle when the reply isn't in English.
+- The weather and mandi modules use an LLM call to pull out entities (city, crop,
+  state, district) from whatever the user types, instead of relying on rigid
+  form fields.
+- Mandi price lookups fall back gracefully: district → state → all-India, and
+  finally list available crops if nothing matches.
+- Government schemes and crop care are both handled with a multi-retriever RAG
+  setup — local vector search over a knowledge base combined with live web
+  retrieval — so answers stay grounded and specific instead of generic.
+- The chat UI opens with a friendly greeting that can be translated on hover,
+  keeps user/bot messages visually distinct, and lets you play back any bot
+  reply as audio or flip a non-English reply back to English.

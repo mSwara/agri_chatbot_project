@@ -1,0 +1,29 @@
+PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)
+PM-KISAN is a central sector scheme launched in 2019 that provides income support of Rs. 6,000 per year to all landholding farmer families, paid in three equal installments of Rs. 2,000 every four months directly into their bank accounts via Direct Benefit Transfer. Eligibility is based on land ownership records held by state governments. Certain categories such as institutional landholders and high-income professionals are excluded. Farmers can register through the PM-KISAN portal or the local Common Service Centre.
+
+PMFBY (Pradhan Mantri Fasal Bima Yojana)
+PMFBY is a crop insurance scheme that provides financial support to farmers in the event of crop failure due to natural calamities, pests, or diseases. Farmers pay a very low premium — 2% for Kharif crops, 1.5% for Rabi crops, and 5% for annual commercial/horticultural crops — with the government subsidizing the rest. Claims are settled using technology-based yield estimation, including drones and satellite imagery, to speed up compensation.
+
+Kisan Credit Card (KCC)
+The KCC scheme gives farmers timely access to short-term formal credit for crop production, post-harvest expenses, and farm asset maintenance at concessional interest rates (as low as 4% per annum with prompt repayment incentives). The card can also be used for allied activities like animal husbandry and fisheries. It is issued by cooperative banks, regional rural banks, and public sector banks based on land records and cropping pattern.
+
+PM Krishi Sinchai Yojana (PMKSY) — Per Drop More Crop
+This scheme promotes micro-irrigation (drip and sprinkler irrigation systems) to improve water use efficiency at the farm level. Under the "Per Drop More Crop" component, farmers can receive a subsidy of up to 55% (for small/marginal farmers) or 45% (for other farmers) of the cost of installing drip irrigation systems. States may add a top-up subsidy. Applications are made through the state horticulture or agriculture department.
+
+Soil Health Card Scheme
+Under this scheme, the government issues Soil Health Cards to farmers every two years, providing crop-wise recommendations of nutrients and fertilizers required for individual farms based on soil testing. This helps farmers optimize input costs, improve soil fertility over the long term, and increase productivity by using the right nutrients in the right quantity.
+
+National Mission for Sustainable Agriculture (NMSA)
+NMSA promotes sustainable agriculture practices suited to India's diverse agro-climatic conditions, focusing on integrated farming, water use efficiency, soil health management, and synergizing resource conservation with climate change adaptation. It includes sub-missions on rainfed area development and agroforestry.
+
+Rashtriya Krishi Vikas Yojana (RKVY)
+RKVY provides states with flexible financial assistance to plan and execute agriculture and allied sector development schemes according to local priorities, encouraging states to increase public investment in agriculture and allied sectors.
+
+e-NAM (National Agriculture Market)
+e-NAM is a pan-India electronic trading portal that networks existing APMC mandis to create a unified national market for agricultural commodities. It gives farmers access to more buyers and better price discovery, transparent auction processes, and online payment settlement directly into farmers' accounts.
+
+Paramparagat Krishi Vikas Yojana (PKVY)
+PKVY promotes organic farming through a cluster approach, with financial assistance of Rs. 50,000 per hectare over three years for organic inputs, certification, and marketing. It encourages farmers to adopt chemical-free farming methods that improve soil health and long-term sustainability.
+
+Agriculture Infrastructure Fund (AIF)
+AIF provides medium to long-term debt financing for investment in post-harvest management infrastructure and community farming assets like cold storage, warehouses, and processing units, with interest subvention of 3% per annum and credit guarantee support for loans up to Rs. 2 crore.

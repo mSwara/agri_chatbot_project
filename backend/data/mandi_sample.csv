@@ -1,0 +1,19 @@
+state,district,market,commodity,variety,min_price,max_price,modal_price,arrival_date
+Maharashtra,Nashik,Nashik,Onion,Local,1200,1800,1500,2026-09-08
+Maharashtra,Pune,Pune,Onion,Local,1100,1700,1400,2026-09-08
+Maharashtra,Nashik,Nashik,Tomato,Hybrid,800,1300,1050,2026-09-08
+Punjab,Ludhiana,Ludhiana,Wheat,Dara,2100,2250,2180,2026-09-08
+Punjab,Amritsar,Amritsar,Wheat,Dara,2080,2220,2150,2026-09-08
+Uttar Pradesh,Lucknow,Lucknow,Potato,Local,900,1200,1050,2026-09-08
+Uttar Pradesh,Agra,Agra,Potato,Local,850,1150,1000,2026-09-08
+Karnataka,Bengaluru,Bengaluru,Tomato,Hybrid,700,1200,950,2026-09-08
+Karnataka,Belagavi,Belagavi,Sugarcane,Local,280,320,300,2026-09-08
+Gujarat,Rajkot,Rajkot,Groundnut,Bold,5200,5800,5500,2026-09-08
+Madhya Pradesh,Indore,Indore,Soybean,Yellow,4200,4600,4400,2026-09-08
+Rajasthan,Jaipur,Jaipur,Mustard,Local,5300,5700,5500,2026-09-08
+Bihar,Patna,Patna,Rice,Common,1900,2100,2000,2026-09-08
+West Bengal,Kolkata,Kolkata,Rice,Common,1950,2150,2050,2026-09-08
+Andhra Pradesh,Guntur,Guntur,Chilli,Dry,12000,15000,13500,2026-09-08
+Tamil Nadu,Coimbatore,Coimbatore,Turmeric,Finger,7000,8500,7800,2026-09-08
+Odisha,Bhubaneswar,Bhubaneswar,Rice,Common,1850,2050,1950,2026-09-08
+Haryana,Karnal,Karnal,Wheat,Dara,2120,2260,2200,2026-09-08

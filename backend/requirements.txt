@@ -1,0 +1,42 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.9
+pydantic-settings>=2.5
+python-dotenv>=1.0
+python-multipart>=0.0.9
+
+# LLM (Groq)
+groq>=0.9
+
+# Translation & language detection (free, no API key required)
+deep-translator>=1.11
+langdetect>=1.0.9
+
+# Text-to-Speech
+gTTS>=2.5
+
+# Speech-to-Text
+openai-whisper
+
+# RAG: embeddings + vector store
+sentence-transformers>=3.0
+faiss-cpu>=1.9
+numpy>=1.26
+
+# Extra knowledge retrievers (free)
+wikipedia>=1.4
+beautifulsoup4>=4.12
+# Note: DuckDuckGo fallback search is implemented as a direct HTML-endpoint
+# scrape in app/services/rag_service.py (via requests + BeautifulSoup) rather
+# than the duckduckgo-search package, whose releases either depend on a Rust
+# HTTP backend with no prebuilt wheels for newer Python, or hit a removed
+# `proxies` kwarg on modern httpx.
+
+# Optional cloud-grade retrievers (require API keys, used if configured)
+tavily-python>=0.3
+google-search-results>=2.4
+
+# Optional cloud vector DB (used instead of FAISS if PINECONE_API_KEY is set)
+pinecone-client>=5.0
+
+requests>=2.32

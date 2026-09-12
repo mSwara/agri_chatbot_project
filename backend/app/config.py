@@ -13,6 +13,12 @@ STATIC_DIR = BASE_DIR / "static"
 AUDIO_DIR = STATIC_DIR / "audio"
 VECTORSTORE_DIR = DATA_DIR / "vectorstore"
 
+# Built frontend (output of `npm run build` in frontend/), served directly by
+# FastAPI in production (e.g. Hugging Face Spaces) so the whole app is one
+# deployable unit at one URL. Absent in local dev, where the Vite dev server
+# on :5173 serves the frontend instead — see main.py for the fallback.
+FRONTEND_DIST_DIR = BASE_DIR.parent / "frontend" / "dist"
+
 AUDIO_DIR.mkdir(parents=True, exist_ok=True)
 VECTORSTORE_DIR.mkdir(parents=True, exist_ok=True)
 

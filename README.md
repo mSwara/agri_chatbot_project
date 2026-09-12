@@ -74,9 +74,24 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:5173`. The Vite dev server proxies `/api` and `/static`
+Open `http://localhost:5173`. The Vite dev server proxies API calls straight
 to the backend on port 8000 (see `vite.config.js`), so no CORS setup is needed
 locally.
+
+### One-click local start (Windows)
+
+`start_agribot.bat` (at the project root) launches both servers and opens the
+app in your browser in one go — just double-click it. `stop_agribot.bat`
+shuts both down.
+
+## Deployment
+
+A `Dockerfile` at the project root builds the frontend and packages it with
+the backend into a single container that serves the whole app from one port
+(7860) — ready for Hugging Face Spaces' Docker SDK, or any other
+container host. Environment variables (API keys) are read from the real
+process environment at runtime, so they're set via the host's
+secrets/variables UI rather than a committed `.env` file.
 
 ## API keys — what's required vs. optional
 

@@ -1,4 +1,7 @@
-const BASE_URL = "/api";
+// Same-origin by default: in production the backend serves this frontend's
+// built files itself (see backend/app/main.py), so API calls need no prefix.
+// In dev, vite.config.js proxies these exact paths to the backend on :8000.
+const BASE_URL = "";
 
 async function postJSON(path, body) {
   const res = await fetch(`${BASE_URL}${path}`, {

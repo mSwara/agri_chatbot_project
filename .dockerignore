@@ -1,0 +1,12 @@
+**/.venv
+**/venv
+**/node_modules
+**/__pycache__
+**/.env
+backend/data/vectorstore
+backend/static/audio/*.mp3
+frontend/dist
+.git
+.claude
+*.md
+!README.md

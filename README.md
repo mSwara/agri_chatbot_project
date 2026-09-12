@@ -112,7 +112,7 @@ equivalents, then upgrade module-by-module as you add keys to `backend/.env`:
 
 
 
-<img width="826" height="408" alt="{F91692BD-005F-44A7-B33F-71C906709277}" src="https://github.com/user-attachments/assets/5c6f9574-26d3-4519-8742-1191be78e3ca" />
+<img width="600" height="300" alt="{F91692BD-005F-44A7-B33F-71C906709277}" src="https://github.com/user-attachments/assets/5c6f9574-26d3-4519-8742-1191be78e3ca" />
 <img width="815" height="401" alt="{C77FCD0F-C450-4954-97BC-E537750C2677}" src="https://github.com/user-attachments/assets/6f2f8cb4-5bc2-4eae-8775-116fda02dada" />
 <img width="806" height="399" alt="{C111D785-53E8-4680-924F-8F2F785C4123}" src="https://github.com/user-attachments/assets/f42c8bb2-0a3e-40de-97a6-fe67b70bb9b2" />
 

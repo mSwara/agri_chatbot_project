@@ -15,11 +15,9 @@ langdetect>=1.0.9
 # Text-to-Speech
 gTTS>=2.5
 
-# Speech-to-Text
-openai-whisper
-
-# RAG: embeddings + vector store
-sentence-transformers>=3.0
+# RAG: vector store (embeddings come from either sentence-transformers, if
+# installed via requirements-full.txt, or Hugging Face's hosted Inference API
+# otherwise — see app/services/rag_service.py)
 faiss-cpu>=1.9
 numpy>=1.26
 

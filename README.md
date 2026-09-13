@@ -14,7 +14,7 @@ AgriBot is a voice-enabled, multilingual chatbot built to help Indian farmers ge
 quick answers on weather, mandi (market) prices, government agricultural schemes,
 and general crop care — all in their own language, by typing or speaking.
 
-- **Backend**: FastAPI + a RAG pipeline (FAISS/Pinecone) + Groq LLM + Whisper (speech-to-text) + gTTS (text-to-speech)
+- **Backend**: FastAPI + a RAG pipeline (FAISS/Pinecone, Hugging Face embeddings) + Groq LLM + Whisper (speech-to-text, optional) + gTTS (text-to-speech)
 - **Frontend**: React + Vite + Tailwind CSS, with mic input and voice playback
 
 ## Project layout
@@ -53,7 +53,7 @@ agri_chatbot/
 | `POST /get-mandi-prices` | Market prices with district→state→all-India fallback |
 | `POST /get-scheme-info` | RAG over government schemes knowledge base |
 | `POST /get-agriculture-info` | RAG over crop-care / pest / fertilizer knowledge |
-| `POST /speech-to-text` | Whisper transcription of uploaded audio |
+| `POST /speech-to-text` | Whisper transcription of uploaded audio (needs `requirements-full.txt`) |
 | `POST /text-to-speech` | gTTS-generated `.mp3`, returns URL |
 
 Interactive Swagger docs: `http://localhost:8000/docs`
@@ -68,6 +68,12 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
+```
+
+For real voice input (Whisper) and local embeddings instead of the Hugging
+Face Inference API, also install the optional heavy dependencies (PyTorch):
+```bash
+pip install -r requirements-full.txt
 ```
 
 Edit `backend/.env` and add whichever keys you have (see below). Then run:
@@ -98,10 +104,22 @@ shuts both down.
 
 A `Dockerfile` at the project root builds the frontend and packages it with
 the backend into a single container that serves the whole app from one port
-(7860) — ready for Hugging Face Spaces' Docker SDK, or any other
-container host. Environment variables (API keys) are read from the real
-process environment at runtime, so they're set via the host's
-secrets/variables UI rather than a committed `.env` file.
+— ready for Render, Hugging Face Spaces' Docker SDK, or any other container
+host. Environment variables (API keys) are read from the real process
+environment at runtime, so they're set via the host's secrets/variables UI
+rather than a committed `.env` file.
+
+By default the image is built **without** `requirements-full.txt` (no
+PyTorch), so it fits comfortably on free/low-memory tiers. In this mode:
+- RAG embeddings use the Hugging Face Inference API instead of a local model
+  (set `HF_API_TOKEN` — free at huggingface.co/settings/tokens)
+- Voice input (Whisper) is disabled; text chat and voice *output* (gTTS)
+  still work normally
+
+To include Whisper + local embeddings instead, uncomment the two extra
+`RUN`/`COPY` lines in the `Dockerfile` — needs a host with enough RAM for
+PyTorch (Hugging Face Spaces' free CPU tier works; most 512MB free web-host
+tiers don't).
 
 ## API keys — what's required vs. optional
 
@@ -112,7 +130,8 @@ equivalents, then upgrade module-by-module as you add keys to `backend/.env`:
 |---|---|---|
 | Language detection & translation | ✅ (`langdetect` + `deep-translator`) | — |
 | Text-to-speech | ✅ (`gTTS`, free) | — |
-| Speech-to-text | ✅ (`openai-whisper`, runs locally; needs `ffmpeg` installed) | — |
+| Speech-to-text | ✅ if `requirements-full.txt` is installed (`openai-whisper`, needs `ffmpeg`); disabled otherwise | — |
+| RAG embeddings | ✅ locally if `requirements-full.txt` is installed; else via HF's remote API | `HF_API_TOKEN` (free, only needed without `requirements-full.txt`) |
 | Chat / intent / RAG answer generation | ⚠️ returns a placeholder message | `GROQ_API_KEY` (free tier at console.groq.com) |
 | Weather | ⚠️ returns "no live data" message | `OPENWEATHER_API_KEY` |
 | Mandi prices | ✅ (bundled `mandi_sample.csv` demonstrates the fallback logic) | `DATA_GOV_API_KEY` (free, data.gov.in) |

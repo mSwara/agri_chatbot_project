@@ -52,6 +52,13 @@ def speech_to_text(audio_path: str) -> dict:
     """Transcribe an audio file (any format ffmpeg can decode) using Whisper."""
     try:
         model = _get_whisper_model()
+    except ImportError:
+        logger.warning(
+            "openai-whisper isn't installed in this deployment — voice input is "
+            "disabled here (text chat and voice *output* still work normally)."
+        )
+        return {"text": "", "detected_language": None}
+    try:
         result = model.transcribe(audio_path)
         return {"text": result.get("text", "").strip(), "detected_language": result.get("language")}
     except Exception as exc:  # noqa: BLE001

@@ -1,0 +1,13 @@
+# Optional heavy dependencies for the FULL local experience: real voice input
+# (Whisper) and local embeddings (sentence-transformers, no HF_API_TOKEN
+# needed). Install on top of requirements.txt:
+#
+#   pip install -r requirements.txt -r requirements-full.txt
+#
+# Not used in the default lightweight deployment (e.g. Render free tier) —
+# PyTorch alone is too heavy for a 512MB instance. There, the app
+# automatically falls back to the Hugging Face Inference API for embeddings
+# and disables voice input (text chat and voice *output* still work).
+
+openai-whisper
+sentence-transformers>=3.0

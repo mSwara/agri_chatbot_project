@@ -46,6 +46,11 @@ class Settings(BaseSettings):
     pinecone_environment: str = ""
     pinecone_index_name: str = "agribot-knowledge"
 
+    # Embeddings fallback: used only when sentence-transformers/PyTorch isn't
+    # installed locally (e.g. lightweight production deployments) — see
+    # services/rag_service.py. Free token at huggingface.co/settings/tokens.
+    hf_api_token: str = ""
+
     # App
     app_host: str = "0.0.0.0"
     app_port: int = 8000

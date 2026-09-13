@@ -19,7 +19,14 @@ export default function MicButton({ onTranscribed, disabled }) {
         setBusy(true);
         try {
           const { text } = await speechToText(blob);
-          if (text) onTranscribed(text);
+          if (text) {
+            onTranscribed(text);
+          } else {
+            alert(
+              "Couldn't transcribe that — voice input may not be available on this " +
+                "deployment. Please type your question instead."
+            );
+          }
         } catch (err) {
           console.error("Speech-to-text failed:", err);
         } finally {

@@ -6,9 +6,6 @@ AgriBot is a voice-enabled, multilingual chatbot built to help Indian farmers ge
 quick answers on weather, mandi (market) prices, government agricultural schemes,
 and general crop care — all in their own language, by typing or speaking.
 
-- **Backend**: FastAPI + a RAG pipeline (FAISS/Pinecone, Hugging Face embeddings) + Groq LLM + Whisper (speech-to-text, optional) + gTTS (text-to-speech)
-- **Frontend**: React + Vite + Tailwind CSS, with mic input and voice playback
-
 ## Project layout
 
 ```

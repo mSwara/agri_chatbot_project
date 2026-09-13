@@ -1,15 +1,5 @@
----
-title: AgriBot
-emoji: 🌾
-colorFrom: green
-colorTo: yellow
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # AgriBot — AI-Powered Agricultural Assistant
-
+🔗 **[Try the live app](https://agribot-dzdf.onrender.com/)**
 AgriBot is a voice-enabled, multilingual chatbot built to help Indian farmers get
 quick answers on weather, mandi (market) prices, government agricultural schemes,
 and general crop care — all in their own language, by typing or speaking.

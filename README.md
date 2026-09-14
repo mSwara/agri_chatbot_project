@@ -110,24 +110,7 @@ To include Whisper + local embeddings instead, uncomment the two extra
 PyTorch (Hugging Face Spaces' free CPU tier works; most 512MB free web-host
 tiers don't).
 
-## API keys — what's required vs. optional
 
-AgriBot is designed to **run immediately with zero keys**, using free local/offline
-equivalents, then upgrade module-by-module as you add keys to `backend/.env`:
-
-| Feature | Works without a key? | Key to add for full functionality |
-|---|---|---|
-| Language detection & translation | ✅ (`langdetect` + `deep-translator`) | — |
-| Text-to-speech | ✅ (`gTTS`, free) | — |
-| Speech-to-text | ✅ if `requirements-full.txt` is installed (`openai-whisper`, needs `ffmpeg`); disabled otherwise | — |
-| RAG embeddings | ✅ locally if `requirements-full.txt` is installed; else via HF's remote API | `HF_API_TOKEN` (free, only needed without `requirements-full.txt`) |
-| Chat / intent / RAG answer generation | ⚠️ returns a placeholder message | `GROQ_API_KEY` (free tier at console.groq.com) |
-| Weather | ⚠️ returns "no live data" message | `OPENWEATHER_API_KEY` |
-| Mandi prices | ✅ (bundled `mandi_sample.csv` demonstrates the fallback logic) | `DATA_GOV_API_KEY` (free, data.gov.in) |
-| Government schemes RAG | ✅ (local `schemes.txt` + FAISS + Wikipedia) | `PINECONE_API_KEY` to swap FAISS → Pinecone |
-| Crop care RAG | ✅ (Wikipedia) | `TAVILY_API_KEY`, `SERPAPI_API_KEY` for broader retrieval |
-
-**Minimum to see the full chat intelligence working: just set `GROQ_API_KEY`.**
 
 ## How it works
 
